@@ -14,9 +14,9 @@ In this application we want a user to perform various operations like create,rea
 - PostgreSQL
 
 ## Requirements for the application:
-- VS Code
-- Tortoise Git
-- npm package
+- VS Code - [download](https://code.visualstudio.com/download)
+- Tortoise Git - [download](https://tortoisegit.org/download/)
+- npm package 
 
 
 
