@@ -23,14 +23,14 @@
 } */
 
 #bgrtwo {
-    background-color: #ffffff;
+    background-color: #99cfe0;
     text-align: center;
     height: 400px;
     display: table-cell;
 }
 
 #bgrone {
-    background-color: #fffff9;
+    background-color: #7aeb7a;
     text-align: center;
     height: 400px;
     width: 60%;
@@ -77,5 +77,6 @@
 #lbl2 {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 200%;
+    font-size: 25px;
+    text-align: center;
 }
