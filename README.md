@@ -1,8 +1,7 @@
-# Group3 - Full Stack App:
-In this application we want a user to perform various operations like create, read, update and delete on the various quests that we create. 
+# Group3 - Full Stack App: 
 
 ## Overview:
-In this application we can see two colors where if user touches the first color the user will get a treasure location. When user touches the second color it will check whether the user is near to the location or not and then if user is far from the location then it will give a clue to help the user. If user is near to the location then it will notify the Congrats message.
+In this application a user will have to check for two colors. If the user click or touches color 1 then it will request for a treasure location. If the user clicks/touches the second color, if he is inside the location then user has to get the information like he has earned the treasure. He should be given the directions to find the treasure if he is outside of the location.
 
 ## Team Members:
 ### Rohith Chittimalla

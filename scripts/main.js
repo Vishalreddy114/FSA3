@@ -28,11 +28,9 @@ function colorFunction1() {
 }
 
 function colorFunction2() {
-    const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", ];
-    const random = Math.floor(Math.random() * values.length);
-    let value = values[random];
+    
     document.getElementById("bgrtwo").style.backgroundColor = "#99cfe0";
-    document.getElementById("lbl2").innerHTML = value;
+    document.getElementById("bgrtwo").innerHTML="This is for second color"
     let utterance = new SpeechSynthesisUtterance(`     You have picked the card of color Light Blue of the value     ${value}`);
     speechSynthesis.speak(utterance);
 }
