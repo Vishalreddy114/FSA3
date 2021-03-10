@@ -4,7 +4,7 @@
  *  rather than explicitly calling require for each
  *
  *
- * @author Rajeshwari Rudravaram <s538361@nwmissouri.edu>
+ * 
  */
 const dotenv = require('dotenv');
 const fs = require('fs');
