@@ -11,9 +11,29 @@ In this application a user will have to check for two colors. If the user click 
 
 ## Stack:
 - Platform : Node
-- Framework: Express
-- ViewEngine: Ejs
-- PostgreSQL
+- Framework : Express
+- ViewEngine : EJS
+- Data Store : PostgreSQL
+- Host : Heroku
+- ORM : PostgreSQL
+
+## Prerequisites for Publishing
+
+- [Heroku CLI - to publish](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
+- [Heroku login](https://id.heroku.com/login)
+- [PostgreSQL local install](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+
+Create Heroku app with Heroku Postgres (Hobby Dev - free) add-on.
+
+## Background - How to Start a New App like this
+
+- Run Express-generator with EJS (dynamically create pages with HTML & embedded JS)
+- Update the JavaScript - change var to const, use async/await
+- Change package.json versions to "latest" - until you have issues, then freeze a version
+- Add folders to organize your code
+- Update to use Express app4 updates - stay current
+- [Set up ESLint and Prettier](https://sourcelevel.io/blog/how-to-setup-eslint-and-prettier-on-node)
+
 
 ## Hosted Application on Heroku
  https://fsa3.herokuapp.com/
