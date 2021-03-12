@@ -15,6 +15,9 @@ In this application a user will have to check for two colors. If the user click 
 - ViewEngine: Ejs
 - PostgreSQL
 
+## Hosted Application on Heroku
+ https://fsa3.herokuapp.com/
+
 ## Requirements for the application:
 - VS Code - [download](https://code.visualstudio.com/download)
 - Tortoise Git - [download](https://tortoisegit.org/download/)
