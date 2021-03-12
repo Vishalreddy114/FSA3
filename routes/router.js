@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get('/',(req,res)=>
 {
-    return res.render('index.ejs',{ title: 'Home' });
+    return res.render('./location/index.ejs',{ title: 'Home' ,layout:false});
 });
 
 router.get('/index', (req, res) => {
