@@ -28,10 +28,6 @@ module.exports = (db, DataTypes) => {
       allowNull: false
     },
 
-    locationValue: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
   });
 
 };
