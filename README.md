@@ -15,7 +15,7 @@ In this application a user will have to check for two colors. If the user click 
 - ViewEngine : EJS
 - Data Store : PostgreSQL
 - Host : Heroku
-- ORM : PostgreSQL
+- ORM : Sequelize
 
 ## Prerequisites for Publishing
 
