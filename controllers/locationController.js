@@ -3,7 +3,7 @@ const api = express.Router()
 const locationModel = require('../models/location.js')
 const notfoundstring = 'location not found'
 const bodyParser = require('body-parser');
-const cons = require('consolidate');
+// const cons = require('consolidate');
 api.use(bodyParser.json())
 api.use(bodyParser.urlencoded({ extended: true }));
 
