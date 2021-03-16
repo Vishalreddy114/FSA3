@@ -1,6 +1,6 @@
 const express = require('express')
 const api = express.Router()
-const locationModel = require('../../models/location.js')
+const locationModel = require('../models/location.js')
 const notfoundstring = 'location not found'
 const bodyParser = require('body-parser');
 const cons = require('consolidate');
