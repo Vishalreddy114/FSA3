@@ -6,7 +6,7 @@ const locationRoutes = require('./location.routes');
 
 router.get('/',(req,res)=>
 {
-    return res.render('./location/index.ejs',{ title: 'Home' ,layout:false});
+    return res.render('./index.ejs',{ title: 'Home' ,layout:false});
 });
 
 router.get('/index', (req, res) => {
@@ -17,7 +17,7 @@ router.get('/index', (req, res) => {
 try {
     router.use('/location', locationRoutes);
   } catch (err) {
-    LOG.error(`ERROR: ${err.message}`);
+    console.log(`ERROR: ${err.message}`);
   }
     
  // Route requests that start with an expression to a controller
