@@ -43,5 +43,9 @@ Create Heroku app with Heroku Postgres (Hobby Dev - free) add-on.
 - Tortoise Git - [download](https://tortoisegit.org/download/)
 - npm package 
 
-
+## References:
+- https://github.com/denisecase/web-app-2020-fall
+- https://github.com/Saikrishna1545/talk2-group1
+- https://github.com/Bhaskar2909/fsa-group4
+- https://github.com/sumana-reddy/FSA-group8
 
