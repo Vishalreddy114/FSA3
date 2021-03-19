@@ -1,25 +1,33 @@
-// const router = require('express').Router();
-// const controller = require('../controllers/locationController');
+const router = require('express').Router();
+const controller = require('../controllers/locationController.js');
+const LOG = require('../util/logger');
 
-// // console.log(JSON.stringify(api));
-// // handle two requests for JSON (HTTP GET)
+LOG.info('Starting location routing.');
 
-// router.get('/findall',controller.findAll);
-// router.get('/findone/:id', controller.findOne);
+// -----------------------------------------------------------------------------
+// match each expeced HTTP verb + URL endpoint request
+// with a custom function to handle it
+// -----------------------------------------------------------------------------
 
-// // handle three requests to perform database actions (HTTP POST)
+// handle two requests for JSON (HTTP GET)
 
-// router.post('/save', controller.saveNew);
-// router.post('/save/:id', controller.saveEdit);
-// router.post('/delete/:id', controller.deleteItem);
+router.get('/findall', controller.findAll);
+router.get('/findone/:id', controller.findOne);
 
-// // handle five requests for webpages (HTTP GET)
+// handle three requests to perform database actions (HTTP POST)
 
-// router.get('/', controller.showIndex);
-// router.get('/create', controller.showCreate);
-// router.get('/details/:id', controller.showDetails);
-// router.get('/edit/:id', controller.showEdit);
-// router.get('/delete/:id', controller.showDelete);
+router.post('/save', controller.saveNew);
+router.post('/save/:id', controller.saveEdit);
+router.post('/delete/:id', controller.deleteItem);
 
+// handle five requests for webpages (HTTP GET)
 
-// module.exports = router;
+router.get('/', controller.showIndex);
+router.get('/create', controller.showCreate);
+router.get('/details/:id', controller.showDetails);
+router.get('/edit/:id', controller.showEdit);
+router.get('/delete/:id', controller.showDelete);
+
+LOG.info('Loaded locations routes.');
+
+module.exports = router;
