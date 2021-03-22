@@ -1,0 +1,48 @@
+/*
+*
+* This file covers all the list of locations
+* Rajeshwari Rudravaram <s538361@nwmissouri.edu>
+    /
+
+    <% if(locations.length) { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i< locations.length; i++) { %>
+                    <tr>
+                        <th scope="row">
+                            <%= locations[i].locationId %>
+                        </th>
+                        <td>
+                            <%= locations[i].locationName%>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary details"
+                                href="../location/details/<%=locations[i].locationId%>"><i class="fab fa-sistrix"
+                                    title="test"></i></a>
+                            <a class="btn btn-success edit" href="../location/edit/<%=locations[i].locationId%>"><i
+                                    class="fas fa-user-edit"></i></a>
+                            <a class="btn btn-danger delete" href="../location/delete/<%=locations[i].locationId%>"><i
+                                    class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <% } %>
+
+            <!-- if result is empty -->
+            <% if(!locations.length) { %>
+                <p class="text-center">No locations found!</p>
+                <% } %>
+
+                    <br>
+                    <h3>Mouse over icons to see where you will go.</h3>
+
+                    </div>
