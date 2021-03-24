@@ -1,7 +1,7 @@
-const express = require('express')
-const app = express();
-const path = require('path')
-const expressLayouts = require('express-ejs-layouts')
+// dependencies - main
+const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
+const path = require('path'); // builds path strings
 const favicon = require('serve-favicon');
 const morgan = require('morgan'); // logging
 
@@ -13,23 +13,31 @@ const expressStatusMonitor = require('express-status-monitor');
 const helmet = require('helmet'); // safer http headers
 const compression = require('compression'); // smaller=faster
 
-// const port = process.env.PORT || 3000;
+// dependencies - passport authentication
+// const flash = require('connect-flash'); // used with passport
+// const passport = require('passport');
+// const session = require('express-session');
+
+// bring in logger
 const LOG = require('./util/logger');
+
 // configure app variables
 const isProduction = process.env.NODE_ENV === 'production';
 LOG.info('Environment isProduction = ', isProduction);
 
-// bring in logger
+// create Express app
+const app = express();
+LOG.info('app created');
 
+// app middleware - configure EJS (and other view engines as needed)
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.engine('ejs', engines.ejs);
 
-//set the root view folder
-app.set('views', path.join(__dirname, './views'))
-
-// specify desired view engine (EJS)
-app.set('view engine', 'ejs')
-app.engine('ejs', engines.ejs)
+// app middleware - status monitoring; view at /status
 app.use(expressStatusMonitor());
 
+// app middleware - basic
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // bodyParser not needed
 app.use(express.static(path.join(__dirname, 'public')));
@@ -38,7 +46,8 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use(expressLayouts);
 app.use(morgan('combined'));
 
-app.use(helmet()); // security, http headers
+// app middleware - production
+ app.use(helmet()); // security, http headers
 app.use(compression()); // compress all routes
 
 // app middleware - expose passport req.location to views
@@ -68,31 +77,28 @@ app.use(baseUrl, require('./routes/index'));
 // export the express app (helpful for testing)
 // see bin/www.js for environment-specific startup
 module.exports = app;
-// const router = require('./routes/router')
-// app.use('/', router)
-
-// app.listen(port,()=>
-//   {
-//     try{
-//     console.log(`\nApp running at http://localhost:3000/`)
-//   }catch(err)
-//   {
-//     console.error(err.message);
-//   }
-//   }
-// );
-
-// module.exports = router;
 
 
-// app.get('/',(req,res)=>{
-//     res.render('/index.html')
+// const express = require('express')
+// const app = express()
+// const port = process.env.PORT || 3000
+
+// app.get('/', (req, res) => {
+//   res.send('Welcome to Location based gaming app.')
 // })
 
-// app.get('/about',(req,res)=>{
-//     res.send("You have requested the about page!")
-// })
 
-// app.get('/contact',(req,res)=>{
-//     res.send("You have requested the contact page!")
+
+  
+// app.get('/contact', (req, res) => {
+//     res.send(' Displays the contact page of this app. ')
+//   })
+// app.get('/help', (req, res) => {
+//     res.send(' Displays the help page of this app. ')
+//   })
+// app.get('/help/:topic', (req, res) => {
+//     res.send(` How can I help you with this ${req.params.topic}. `)
+//   })
+// app.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`)
 // })
