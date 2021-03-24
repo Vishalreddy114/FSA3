@@ -1,4 +1,4 @@
-import locationsArray from '../locations.js';
+import data from './speech.js'
 
 let locationElement = document.getElementById("bgrtwo");
 let locationElement2 = document.getElementById("bgrone");
