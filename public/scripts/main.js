@@ -19,7 +19,7 @@ colorElement2.addEventListener('touch', onClickSquareBox2);
 async function onClickSquareBox1() {
 
     data.forEach(function(value){
-        document.getElementById("status").innerHTML = "Select the Location";
+        document.getElementById("status").innerHTML = "You have reached the target location.";
         let utterance = new SpeechSynthesisUtterance(value.status_message);
         speechSynthesis.speak(utterance);
     });
