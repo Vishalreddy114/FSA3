@@ -4,12 +4,6 @@ const LOG = require('../util/logger');
 
 LOG.info('Starting location routing.');
 
-// -----------------------------------------------------------------------------
-// match each expeced HTTP verb + URL endpoint request
-// with a custom function to handle it
-// -----------------------------------------------------------------------------
-
-// handle two requests for JSON (HTTP GET)
 
 router.get('/findall', controller.findAll);
 router.get('/findone/:locationId', controller.findOne);
@@ -29,6 +23,8 @@ router.get('/edit/:locationId', controller.showEdit);
 router.get('/delete/:locationId', controller.showDelete);
 
 router.get('/location',controller.showIndex);
+
+router.get('/list',controller.showList);
 
 LOG.info('Loaded locations routes.');
 
