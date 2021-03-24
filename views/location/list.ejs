@@ -1,31 +1,17 @@
-<<<<<<< HEAD
 <br>
 <br>
 <h2>List of locations.</h2>
 <br>
-=======
-/*
-*
-* This file covers all the list of locations
-* Rajeshwari Rudravaram <s538361@nwmissouri.edu>
-    /
->>>>>>> ea2681ebd77e31a93433b1993f45562b1687b290
 
     <% if(locations.length) { %>
         <table class="table">
             <thead>
                 <tr>
-<<<<<<< HEAD
                     <th scope="col">Location ID</th>
                     <th scope="col">Location Name</th>
                     <th scope="col">Location Latitude</th>
                     <th scope="col">Location Longitude</th>
   
-=======
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th>Action</th>
->>>>>>> ea2681ebd77e31a93433b1993f45562b1687b290
                 </tr>
             </thead>
             <tbody>
@@ -37,21 +23,9 @@
                         <td>
                             <%= locations[i].locationName%>
                         </td>
-<<<<<<< HEAD
                         <td><%= locations[i].locationLatitude%></td>
                         <td><%= locations[i].locationLongitude%></td>
 
-=======
-                        <td>
-                            <a class="btn btn-primary details"
-                                href="../location/details/<%=locations[i].locationId%>"><i class="fab fa-sistrix"
-                                    title="test"></i></a>
-                            <a class="btn btn-success edit" href="../location/edit/<%=locations[i].locationId%>"><i
-                                    class="fas fa-user-edit"></i></a>
-                            <a class="btn btn-danger delete" href="../location/delete/<%=locations[i].locationId%>"><i
-                                    class="fas fa-trash-alt"></i></a>
-                        </td>
->>>>>>> ea2681ebd77e31a93433b1993f45562b1687b290
                     </tr>
                     <% } %>
             </tbody>
@@ -63,13 +37,6 @@
                 <p class="text-center">No locations found!</p>
                 <% } %>
 
-<<<<<<< HEAD
 
 
                     </div>
-=======
-                    <br>
-                    <h3>Mouse over icons to see where you will go.</h3>
-
-                    </div>
->>>>>>> ea2681ebd77e31a93433b1993f45562b1687b290
