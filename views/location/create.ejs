@@ -10,8 +10,23 @@
   <div class="card-body">
     <form action="/location/save" method="post">
       <div class="form-group">
-        <label for="locationName">Name:</label>
+        <label for="locationId">Location Id:</label>
+        <input type="text" class="form-control" id="locatioId" name="locationId" value="<%= location.locationId %>" autocomplete="off">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="locationName">Location Name:</label>
         <input type="text" class="form-control" id="locationName" name="locationName" value="<%= location.locationName %>" autocomplete="off">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="locationLatitude">Location Latitude:</label>
+        <input type="text" class="form-control" id="locationLatitude" name="locationLatitude" value="<%= location.locationLatitude %>" autocomplete="off">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="locationLongitude">Location Longitude:</label>
+        <input type="text" class="form-control" id="locationLongitude" name="locationLongitude" value="<%= location.locationLongitude %>" autocomplete="off">
       </div>
       <br>
       <div class="form-group">
