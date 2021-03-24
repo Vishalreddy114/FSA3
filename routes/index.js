@@ -2,18 +2,18 @@ const express = require('express')
 const path = require ('path')
 const router = express.Router()
 const locationRoutes = require('./location.routes');
-// const LOG = require('../util/logger');
+const LOG = require('../util/logger');
+LOG.info('routes/index.js: STARTING custom routes......');
 
-console.log('routes/router.js: STARTING custom routes......');
 
 const appTitle = 'FSA3';
 const appSubTitle = 'our collaborative full stack app';
 router.get('/',(req,res)=>
 {
-    return res.render('./index.ejs',{ 
+    return res.render('index.ejs',{ 
       title: appTitle ,
       subTitle: appSubTitle,
-      layout:false
+      
     });     
   });
 
@@ -28,11 +28,11 @@ router.get('/awesomeappdev',(req, res) => {
 try {
     router.use('/location', locationRoutes);
   } catch (err) {
-    console.log(`ERROR: ${err.message}`);
+    LOG.error(`ERROR: ${err.message}`);
   }
     
  // Route requests that start with an expression to a controller
 //  router.use('/location',require('../controllers/locationController'));
-console.log('routes/router.js: ENDING custom routes......');
+LOG.info('routes/index.js: ENDING custom routes......');
 
 module.exports = router;

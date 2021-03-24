@@ -50,6 +50,7 @@
     "sequelize": "latest",
     "sequelize-cli": "latest",
     "serve-favicon": "latest",
+    "sqlite3": "^5.0.2",
     "winston": "latest"
   },
   "devDependencies": {
