@@ -1,4 +1,4 @@
 export default [
-    {status_message : "Congratulations! You have reached the target location."},
-    {status1_message : "You are outside the target location."}
+    {status_message : "Your target location is Colden Pond."},
+    {status1_message : "Sorry, You haven't reached the target location."}
 ]
