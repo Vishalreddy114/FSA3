@@ -1,30 +1,82 @@
-import data from './speech.js'
-// import locationsArray from "./init-locations.js"
+import { isInsideCircle } from './location-circle.js';
+import locationsArray from "./init-locations.js";
 
+
+// let device, location;
+let colorElement = document.getElementById("status1");
 let colorElement1 = document.getElementById("status");
-let colorElement2 = document.getElementById("status1");
+
+
+window.addEventListener('load', main);
+colorElement.addEventListener('click', onClickSquareBox2);
+colorElement.addEventListener('touch', onClickSquareBox2);
+colorElement1.addEventListener('click', onClickSquareBox1);
+colorElement1.addEventListener('touch', onClickSquareBox1);
 
 function main() {
     console.log('Page is fully loaded');
 }
 
-window.addEventListener('load', main);
-colorElement1.addEventListener('click', onClickSquareBox1);
-colorElement1.addEventListener('touch', onClickSquareBox1);
-colorElement2.addEventListener('click', onClickSquareBox2);
-colorElement2.addEventListener('touch', onClickSquareBox2);
-
-
-
 async function onClickSquareBox1() {
-
     document.getElementById("targetloc").innerHTML = "The Treasure is in the location ";
     document.getElementById("lbl").innerHTML = targetLoc.Name;
     let utterance = new SpeechSynthesisUtterance(`The location where the treasure is ${targetLoc.Name}`);
     speechSynthesis.speak(utterance);
    document.getElementById("device-lat").innerHTML = targetLoc.coordinates[0].latitude;
     document.getElementById("device-long").innerHTML = targetLoc.coordinates[1].longitude;
+ 
+
+
+
 }
+//     location = locationsArray[0];
+//     let confirmation = "Your target location is " + location.name;
+//     document.getElementById("status1").innerHTML = confirmation;
+//     let utterance = new SpeechSynthesisUtterance(confirmation);
+//     speechSynthesis.speak(utterance);
+// }
+
+// async function onClickSquareBox1() {
+//     device = await getLocation();
+
+//     let isInside = isInsideCircle(device, location);
+//     let status;
+//     let speak;
+//     status = "Device Coordinates: " + "<br>";
+//     status += "Latitude: " + device.coords.latitude + "<br>";
+//     status += "Longitude: " + device.coords.longitude + "<br>";
+//     if (isInside) {
+//         status += "Congratulations!! You have reached the destination: " + location.name;
+//         speak = "Congratulations!! You have reached the destination: " + location.name;
+//     } else {
+//         status += "You haven't reached the destination";
+//         speak = "You haven't reached the destination";
+//     }
+//     document.getElementById("status").innerHTML = status;
+//     let utterance = new SpeechSynthesisUtterance(speak);
+//     speechSynthesis.speak(utterance);
+// }
+
+// // collects current location
+// async function getLocation() {
+//     return new Promise((resolve, reject) => {
+//         navigator.geolocation.getCurrentPosition(resolve, reject);
+//     }).then((position) => {
+//         return position;
+//     });
+// }
+// function onClickSquareBox2() {
+//     document.getElementById("targetloc").innerHTML = "The Treasure is in the location ";
+//     document.getElementById("lbl").innerHTML = targetLoc.Name;
+//     document.getElementById("device-lat1").innerHTML = targetLoc.coordinates[0].latitude;
+//     document.getElementById("device-long1").innerHTML = targetLoc.coordinates[0].longitude;
+//     let utterance = new SpeechSynthesisUtterance(`The location where the treasure is ${targetLoc.Name}`);
+//     speechSynthesis.speak(utterance);
+
+
+// }
+
+
 async function getLocation() {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -90,7 +142,6 @@ function distanceBetweenLocations(questLat, questLon) {
     const d = R * c;
     return d;
 }
-
 
 
 
