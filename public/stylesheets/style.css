@@ -53,3 +53,21 @@ body {
   color: aliceblue;
 }
 
+.form-group1{
+  display: none;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.form-group{
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.foot{
+  font-style: normal;
+  font-size: large;
+  color: aliceblue;
+}
+

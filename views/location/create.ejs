@@ -8,25 +8,25 @@
       Add Location
     </div>
     <div class="card-body">
-      <form action="/location/save" method="post">
-        <div class="form-group">
-          <label for="locationName">Location Id:</label>
-          <input type="text" class="form-control" id="locationId" name="locationId" value="<%= location.locationId %>" autocomplete="off" required>
+      <form name ="myForm" action="/location/save" method="post">
+        <div class="form-group1">
+          <label for="locationId">Location Id:</label>
+          <input type="number" class="form-control" id="locationId" name="locationId" value="<%= location.locationId %>" autocomplete="on">
         </div>
         <br>
         <div class="form-group">
           <label for="locationName">Location Name:</label>
-          <input type="text" class="form-control" id="locationName" name="locationName" value="<%= location.locationName %>" autocomplete="off" required>
+          <input type="text" class="form-control" id="locationName" name="locationName" value="<%= location.locationName %>" pattern="^/\A[a-zA-Z ]+\Z/" title="It only accepts alphabets not numbers and special characters." autocomplete="off" required>
         </div>
         <br>
         <div class="form-group">
           <label for="locationLatitude">Location Latitude:</label>
-          <input type="text" class="form-control" id="locationLatitude" name="locationLatitude" value="<%= location.locationLatitude %>" autocomplete="off" required>
+          <input type="decimal" class="form-control" id="locationLatitude" name="locationLatitude" value="<%= location.locationLatitude %>" min=-90 max=90 autocomplete="off" required>
         </div>
         <br>
         <div class="form-group">
           <label for="locationLongitude">Location Longitude:</label>
-          <input type="text" class="form-control" id="locationLongitude" name="locationLongitude" value="<%= location.locationLongitude %>" autocomplete="off" required>
+          <input type="decimal" class="form-control" id="locationLongitude" name="locationLongitude" value="<%= location.locationLongitude %>" min=-180 max=180 autocomplete="off" required>
         </div>
         <br>
         <div class="form-group">
