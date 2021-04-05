@@ -4,28 +4,51 @@ module.exports = (db, DataTypes) => {
     locationId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false
+      allowNull: false,
+      autoIncrement: true
     },
     locationName: {
       type: DataTypes.STRING(30),
       unique: true,
       required: true,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        is: {
+          args: /^[a-zA-Z ]*$/  ,
+          msg:
+            'It only accepts alphabets not numbers and special characters.',
+        },
+       
+      },
     },
     locationLatitude: {
       type: DataTypes.DECIMAL(10, 8),
       allowNull: false,
-      validate: { min: -90, max: 90 }
+      validate: { min: {
+        args: -90,
+        msg: 'Latitude must be -90 degrees or more.',
+      },
+      max: {
+        args: 90,
+        msg: 'Latitude must be 90 degrees or less.'
+      },
     },
+  },
     locationLongitude: {
       type: DataTypes.DECIMAL(11, 8),
       allowNull: false,
-      validate: { min: -180, max: 180 }
-    },
+      unique: true,
+      validate: {
+        min: {
+          args: -180,
+          msg: 'Latitude must be -180 degrees or more.',
+        },
+        max: {
+          args: 180,
+          msg: 'Latitude must be 180 degrees or less.',
+        },
 
-    radius: {
-      type: DataTypes.INTEGER,
-      required: true,
+      }
     }
   });
 
