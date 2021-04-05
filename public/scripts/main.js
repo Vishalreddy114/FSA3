@@ -95,7 +95,7 @@ async function getLocation() {
 }
 
 let currentlat, currentlon, loc, error = true;
-// let targetLoc = locationsArray[Math.floor(Math.random() * locationsArray.length)];
+let targetLoc = locationsArray[Math.floor(Math.random() * locationsArray.length)];
 
 async function onClickSquareBox2() {
     const locText = await getLocation();
@@ -111,7 +111,7 @@ async function onClickSquareBox2() {
     locationsArray.forEach(function (value) {
         if (isInside(value.Latitude, value.Longitude)) {
             document.getElementById("location").innerHTML = value.Name;
-            let utterance = new SpeechSynthesisUtterance("Congratulations!, You have found the location ${value.Name}");
+            let utterance = new SpeechSynthesisUtterance(`Congratulations!, You have found the location ${value.Name}`);
             speechSynthesis.speak(utterance);
             error = false;
         }
