@@ -2,25 +2,22 @@ export default [
     {
         Name: 'Colden Pond',
         type: 'circle',
-        coordinate: [
+        coordinate: 
             {
-            latitude: 40.35112686830798,
-            longitude: -94.88220243759864}
-        ],
-        radiusMeters: 30.0,
-        North: 40.35614,
-        South: 35.8425,
-        East: -91.88189,
-        West: -94.88189,
-
+            latitude: 40.3501358970608,
+            longitude: -94.88300668346238
+             
+        }
+        
+        
     },
     {
         Name: 'Horizons West Apartments',
         type: 'circle',
         coordinate: [
             {
-                latitude: 41.31447748801441,
-            longitude: -95.05660917970772
+                latitude: 40.35613747319153,
+            longitude: -94.88199841811789
             }
         ]
 
@@ -30,8 +27,8 @@ export default [
         type: 'circle',
         coordinate: [
             {
-            latitude: 40.353523,
-            longitude: -94.886021
+            latitude: 40.35379248029996,
+            longitude: -94.88604076044588
         }
     ]
 

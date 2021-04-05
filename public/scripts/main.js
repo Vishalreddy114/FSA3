@@ -5,6 +5,7 @@ import locationsArray from "./init-locations.js";
 // let device, location;
 let colorElement = document.getElementById("status1");
 let colorElement1 = document.getElementById("status");
+let inc = 0;
 
 
 window.addEventListener('load', main);
@@ -18,13 +19,21 @@ function main() {
 }
 
 async function onClickSquareBox1() {
+
+    if (inc == locationsArray.length) {
+        inc = 0;
+    }
+
+    // TESTING CHANGES
+    console.log("GET STORAGE LOCATIONS", localStorage.getItem("locations"));
+
     document.getElementById("targetloc").innerHTML = "The Treasure is in the location ";
     document.getElementById("lbl").innerHTML = targetLoc.Name;
-    let utterance = new SpeechSynthesisUtterance(`The location where the treasure is ${targetLoc.Name}`);
+    let utterance = new SpeechSynthesisUtterance(`The treasure is in the location ${locationsArray[inc].Name}`);
     speechSynthesis.speak(utterance);
-   document.getElementById("device-lat").innerHTML = targetLoc.coordinates[0].latitude;
-    document.getElementById("device-long").innerHTML = targetLoc.coordinates[1].longitude;
- 
+   document.getElementById("device-lat").innerHTML = locationsArray[inc].coordinate.latitude;
+    document.getElementById("device-long").innerHTML = locationsArray[inc].coordinate.longitude;
+    inc++;
 
 
 
@@ -86,7 +95,7 @@ async function getLocation() {
 }
 
 let currentlat, currentlon, loc, error = true;
-let targetLoc = locationsArray[Math.floor(Math.random() * locationsArray.length)];
+// let targetLoc = locationsArray[Math.floor(Math.random() * locationsArray.length)];
 
 async function onClickSquareBox2() {
     const locText = await getLocation();
@@ -102,7 +111,7 @@ async function onClickSquareBox2() {
     locationsArray.forEach(function (value) {
         if (isInside(value.Latitude, value.Longitude)) {
             document.getElementById("location").innerHTML = value.Name;
-            let utterance = new SpeechSynthesisUtterance("Congratulations!, You found location ${value.Name}");
+            let utterance = new SpeechSynthesisUtterance("Congratulations!, You have found the location ${value.Name}");
             speechSynthesis.speak(utterance);
             error = false;
         }
@@ -110,8 +119,8 @@ async function onClickSquareBox2() {
 
     if (error) {
         console.log("error is here")
-        document.getElementById("error-message").innerHTML = "Sorry,You're not near to the treasure";
-        let utterance = new SpeechSynthesisUtterance("Sorry,You're not near to the treasure");
+        document.getElementById("error-message").innerHTML = "Sorry,You're far from the treasure";
+        let utterance = new SpeechSynthesisUtterance("Sorry,You're far from the treasure");
         speechSynthesis.speak(utterance);
     } else {
         document.getElementById("error-message").innerHTML = "";
