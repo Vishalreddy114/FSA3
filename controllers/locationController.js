@@ -20,8 +20,10 @@ module.exports.findAll = async (req, res) => {
     ],
   })
     .then((data) => {
+      localStorage.setItem("locations",JSON.stringify(data));
       res.send(data);
     })
+    
     .catch((err) => {
       res.status(500).send({
         message: err.message || 'Error retrieving all.',
