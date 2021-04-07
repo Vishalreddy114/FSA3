@@ -49,11 +49,14 @@ module.exports.findOne = async (req, res) => {
 
 // POST /save
 module.exports.saveNew = async (req, res) => {
+  console.log(req.body,"----------------requrie body location post mehod")
   try {
     const context = await db;
     await context.models.Location.create(req.body);
+    console.log("*************Sucessfully Created resource**************")
     return res.redirect('/location');
   } catch (err) {
+    console.log(err,"***************************error message")
     return res.redirect('/location');
   }
 };
