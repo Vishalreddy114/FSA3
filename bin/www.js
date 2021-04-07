@@ -97,11 +97,27 @@ const onListening = async () => {
     await require('../util/seeder')(db);
   } catch (err) {
     LOG.error(`ERROR with database:${err.message}`);
+ 
   }
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
   LOG.info(`Listening on ${bind}`);
 };
+
+// const updatePostgreSequences = async (db) => {
+//   if (process.env.NODE_ENV !== "production") return;
+//   const extistingLocations = await db.models.location.count();
+//   const extistingCoordinates = await db.models.coordinate.count();
+
+//   await db.queryInterface.sequelize.query(
+//     `ALTER SEQUENCE "locations_id_seq" RESTART WITH ${extistingLocations + 1}`
+//   );
+  // await db.queryInterface.sequelize.query(
+  //   `ALTER SEQUENCE "coordinates_id_seq" RESTART WITH ${
+  //     extistingCoordinates + 1
+  //   }`
+  // );
+//};
 
 /**
  * Listen on provided port, on all network interfaces.

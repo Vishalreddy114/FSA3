@@ -14,9 +14,9 @@ module.exports = async (db) => {
     await db.models.Location.bulkCreate(
       [
         // list of locations
-        { locationId: 1, locationName: 'Colden Pond',locationLatitude: 40.35112,locationLongitude: -94.88220 },
-        { locationId: 2, locationName: 'Horizons West Apartments',locationLatitude:41.31447 ,locationLongitude: -95.05660 },
-        { locationId: 3, locationName: 'B.D Owens Library' ,locationLatitude: 40.35380,locationLongitude: -94.88598},
+        {locationId: 1, locationName: 'Colden Pond',locationLatitude: 40.35112,locationLongitude: -94.88220 },
+        {locationId: 2, locationName: 'Horizons West Apartments',locationLatitude:41.31447 ,locationLongitude: -95.05660 },
+        {locationId: 3, locationName: 'B D Owens Library' ,locationLatitude: 40.35380,locationLongitude: -94.88598},
 
 
     ],
