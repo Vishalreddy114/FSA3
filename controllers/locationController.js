@@ -15,7 +15,7 @@ module.exports.findAll = async (req, res) => {
     include: [
       {
         model: (await db).models.Location,
-        attributes: ['locationId', 'locationName'], 
+        attributes: ['locationId', 'locationName', 'locationLatitude', 'locationLongitude'], 
       },
     ],
   })
