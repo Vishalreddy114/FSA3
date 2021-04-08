@@ -94,10 +94,15 @@ const server = http.createServer(app);
 const onListening = async () => {
   try {
     const db = await require('../models/index')();
-    await require('../util/seeder')(db);
+    console.log(process.env.NODE_ENV, "------------------------------------------env")
+    if (process.env.NODE_ENV == "development") {
+      console.log(".........env enter")
+      await require('../util/seeder')(db);
+    }
+
   } catch (err) {
     LOG.error(`ERROR with database:${err.message}`);
- 
+
   }
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
@@ -112,11 +117,11 @@ const onListening = async () => {
 //   await db.queryInterface.sequelize.query(
 //     `ALTER SEQUENCE "locations_id_seq" RESTART WITH ${extistingLocations + 1}`
 //   );
-  // await db.queryInterface.sequelize.query(
-  //   `ALTER SEQUENCE "coordinates_id_seq" RESTART WITH ${
-  //     extistingCoordinates + 1
-  //   }`
-  // );
+// await db.queryInterface.sequelize.query(
+//   `ALTER SEQUENCE "coordinates_id_seq" RESTART WITH ${
+//     extistingCoordinates + 1
+//   }`
+// );
 //};
 
 /**

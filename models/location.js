@@ -5,6 +5,7 @@ module.exports = (db, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
+      startValue: 10,
       autoIncrement: true
     },
     locationName: {
