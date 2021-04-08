@@ -45,6 +45,31 @@ module.exports.findOne = async (req, res) => {
     });
 };
 
+// GET a random location and it's coordinates
+module.exports.getARandomLocation = async (req, res) => {
+  (await db).models.location
+    .findAll({
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
+      include: [
+        {
+          model: (await db).models.coordinate,
+          as: "coordinate",
+        },
+      ],
+    })
+    .then((data) => {
+      res.send(data[Math.floor(Math.random() * (data.length - 0) + 0)]);
+    })
+    .catch((err) => {
+      LOG.error(`Error: ${JSON.stringify(err)}`);
+      res.status(500).send({
+        message: err.message || "Error retrieving all.",
+      });
+    });
+};
+
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS -----------------------------------
 
 // POST /save

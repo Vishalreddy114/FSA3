@@ -19,21 +19,36 @@ function main() {
 }
 
 async function onClickSquareBox1() {
+    /* Ajax to get a random location from the database when the first box is clicked */
+  $.ajax({
+    type: "GET",
+    url: "/location/get-a-random-location",
+    success: function (coord) {
+      location = {
+        name: coord.locationName,
+        coordinates: coord.coordinate,
+      };
+      let confirmation = "Your target location is " + location.name;
+      colorElement1.innerHTML = confirmation;
+      let utterance = new SpeechSynthesisUtterance(confirmation);
+      speechSynthesis.speak(utterance);
+    },
+  });
 
-    if (inc == locationsArray.length) {
-        inc = 0;
-    }
+    // if (inc == locationsArray.length) {
+    //     inc = 0;
+    // }
 
-    // TESTING CHANGES
-    console.log("GET STORAGE LOCATIONS", localStorage.getItem("locations"));
+    // // TESTING CHANGES
+    // console.log("GET STORAGE LOCATIONS", localStorage.getItem("locations"));
 
-    document.getElementById("targetloc").innerHTML = "The Treasure is in the location ";
-    document.getElementById("lbl").innerHTML = targetLoc.Name;
-    let utterance = new SpeechSynthesisUtterance(`The treasure is in the location ${locationsArray[inc].Name}`);
-    speechSynthesis.speak(utterance);
-   document.getElementById("device-lat").innerHTML = locationsArray[inc].coordinate.latitude;
-    document.getElementById("device-long").innerHTML = locationsArray[inc].coordinate.longitude;
-    inc++;
+    // document.getElementById("targetloc").innerHTML = `The Treasure is in the location ${locationsArray[inc].Name}`;
+    // document.getElementById("lbl").innerHTML = targetLoc.Name;
+    // let utterance = new SpeechSynthesisUtterance(`The treasure is in the location ${locationsArray[inc].Name}`);
+    // speechSynthesis.speak(utterance);
+    // document.getElementById("device-lat").innerHTML = locationsArray[inc].coordinate.latitude;
+    // document.getElementById("device-long").innerHTML = locationsArray[inc].coordinate.longitude;
+    // inc++;
 
 
 
