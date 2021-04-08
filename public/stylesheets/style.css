@@ -3,7 +3,6 @@
 header{
   position: absolute;
   left: 41%;
-  text-align: center;
 }
 
 article {
@@ -19,8 +18,8 @@ article {
   height: 200px;
   width: 200px;
   background: lightcyan;
-  /* float: left;
-  margin-left: 2px; */
+  float: left;
+  margin-left: 2px;
   border: 1px solid #ccc;
 }
 
@@ -28,8 +27,8 @@ article {
   height: 200px;
   width: 200px;
   background: rgb(153, 207, 224);
-  /* float: left;
-  margin-left: 2px; */
+  float: left;
+  margin-left: 2px;
   border: 1px solid #ccc;
 }
 
