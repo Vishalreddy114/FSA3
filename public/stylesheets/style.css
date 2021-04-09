@@ -53,6 +53,21 @@ body {
   color: aliceblue;
 }
 
+.game-title{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.card-header{
+  font-size: x-large;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.c{
+  text-align: right;
+}
+
 .form-group1{
   display: none;
   font-size: small;
@@ -65,9 +80,5 @@ body {
   font-weight: bold;
 }
 
-.foot{
-  font-style: normal;
-  font-size: large;
-  color: aliceblue;
-}
+
 
