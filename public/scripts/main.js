@@ -18,8 +18,17 @@ function main() {
     console.log('Page is fully loaded');
 }
 
+<<<<<<< HEAD
 let currentlat, currentlon, error = true;
 let targetLoc = null;
+=======
+async function onClickSquareBox1() {
+
+
+    if (inc == locationsArray.length) {
+        inc = 0;
+    }
+>>>>>>> c38300364977d651886550fac1530a6a27cc6dda
 
 async function onClickSquareBox1() {
     /* Ajax to get a random location from the database when the first box is clicked */
@@ -70,11 +79,19 @@ async function getLocation() {
     });
 }
 
+<<<<<<< HEAD
 // let currentlat, currentlon, loc, error = true;
 // let targetLoc = locationsArray[Math.floor(Math.random() * locationsArray.length)];
 
 async function onClickSquareBox2() {
     if (!targetLoc) return;
+=======
+let currentlat, currentlon, loc, error = true;
+//let targetLoc = locationsArray[Math.floor(Math.random() * locationsArray.length)];
+
+async function onClickSquareBox2() {
+    if(inc==1){
+>>>>>>> c38300364977d651886550fac1530a6a27cc6dda
     const locText = await getLocation();
 
     [currentlat, currentlon] = [

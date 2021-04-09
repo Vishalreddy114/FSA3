@@ -94,39 +94,37 @@ const server = http.createServer(app);
 const onListening = async () => {
   try {
     const db = await require('../models/index')();
-    console.log(process.env.NODE_ENV, "------------------------------------------env")
-    if (process.env.NODE_ENV == "development") {
-      console.log(".........env enter")
-      await require('../util/seeder')(db);
-    }
-
+    await require('../util/seeder')(db);
+    updatePostgreSequences(db);
   } catch (err) {
     LOG.error(`ERROR with database:${err.message}`);
-
+    
   }
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
   LOG.info(`Listening on ${bind}`);
 };
 
-// const updatePostgreSequences = async (db) => {
-//   if (process.env.NODE_ENV !== "production") return;
-//   const extistingLocations = await db.models.location.count();
+// /* Workaround for increment indexes of postgre not updating after seeding by manually setting them */
+const updatePostgreSequences = async (db) => {
+  if (process.env.NODE_ENV !== "production") return;
+  const extistingLocations = await db.models.Location.count();
 //   const extistingCoordinates = await db.models.coordinate.count();
 
-//   await db.queryInterface.sequelize.query(
-//     `ALTER SEQUENCE "locations_id_seq" RESTART WITH ${extistingLocations + 1}`
-//   );
-// await db.queryInterface.sequelize.query(
-//   `ALTER SEQUENCE "coordinates_id_seq" RESTART WITH ${
-//     extistingCoordinates + 1
-//   }`
-// );
-//};
+  await db.queryInterface.sequelize.query(
+    `ALTER SEQUENCE "Locations_locationId_seq" RESTART WITH ${extistingLocations + 1}`
+  );
+//   // await db.queryInterface.sequelize.query(
+//   //   `ALTER SEQUENCE "coordinates_id_seq" RESTART WITH ${
+//   //     extistingCoordinates + 1
+//   //   }`
+//   // );
+};
 
 /**
  * Listen on provided port, on all network interfaces.
  */
+
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);

@@ -73,32 +73,4 @@ app.use(baseUrl, require('./routes/index'));
   res.status(err.status || 500);
    res.render('error.ejs', { title: 'Error', res });
  });
-
-// export the express app (helpful for testing)
-// see bin/www.js for environment-specific startup
 module.exports = app;
-
-
-// const express = require('express')
-// const app = express()
-// const port = process.env.PORT || 3000
-
-// app.get('/', (req, res) => {
-//   res.send('Welcome to Location based gaming app.')
-// })
-
-
-
-  
-// app.get('/contact', (req, res) => {
-//     res.send(' Displays the contact page of this app. ')
-//   })
-// app.get('/help', (req, res) => {
-//     res.send(' Displays the help page of this app. ')
-//   })
-// app.get('/help/:topic', (req, res) => {
-//     res.send(` How can I help you with this ${req.params.topic}. `)
-//   })
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`)
-// })

@@ -12,12 +12,6 @@ module.exports.findAll = async (req, res) => {
     attributes: {
       exclude: ['createdAt', 'updatedAt'],
     },
-    include: [
-      {
-        model: (await db).models.Location,
-        attributes: ['locationId', 'locationName', 'locationLatitude', 'locationLongitude'], 
-      },
-    ],
   })
     .then((data) => {
       localStorage.setItem("locations",JSON.stringify(data));
@@ -25,6 +19,7 @@ module.exports.findAll = async (req, res) => {
     })
     
     .catch((err) => {
+      console.log(err);
       res.status(500).send({
         message: err.message || 'Error retrieving all.',
       });
@@ -39,36 +34,31 @@ module.exports.findOne = async (req, res) => {
       res.send(data);
     })
     .catch((err) => {
+      LOG.error(`Error: ${JSON.stringify(err)}`);
       res.status(500).send({
         message: `Error retrieving item with id=${locationId}: ${err.message}`,
       });
     });
 };
 
-// GET a random location and it's coordinates
-module.exports.getARandomLocation = async (req, res) => {
-  (await db).models.location
-    .findAll({
-      attributes: {
-        exclude: ["createdAt", "updatedAt"],
-      },
-      include: [
-        {
-          model: (await db).models.coordinate,
-          as: "coordinate",
-        },
-      ],
-    })
+// GET a random location 
+module.exports.findRandom = async (req, res) => {
+  (await db).models.Location.findAll({
+    attributes: {
+      exclude: ["createdAt", "updatedAt"],
+    },
+  })
     .then((data) => {
       res.send(data[Math.floor(Math.random() * (data.length - 0) + 0)]);
     })
     .catch((err) => {
       LOG.error(`Error: ${JSON.stringify(err)}`);
       res.status(500).send({
-        message: err.message || "Error retrieving all.",
+        message: `Error retrieving item with id=${locationId}: ${err.message}`,
       });
     });
 };
+
 
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS -----------------------------------
 
