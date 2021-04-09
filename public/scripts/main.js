@@ -19,21 +19,7 @@ function main() {
 }
 
 async function onClickSquareBox1() {
-//     /* Ajax to get a random location from the database when the first box is clicked */
-//   $.ajax({
-//     type: "GET",
-//     url: "/location/get-a-random-location",
-//     success: function (coord) {
-//       location = {
-//         name: coord.locationName,
-//         coordinates: coord.coordinate,
-//       };
-//       let confirmation = "Your target location is " + location.name;
-//       colorElement1.innerHTML = confirmation;
-//       let utterance = new SpeechSynthesisUtterance(confirmation);
-//       speechSynthesis.speak(utterance);
-//     },
-//   });
+
 
     if (inc == locationsArray.length) {
         inc = 0;
@@ -110,9 +96,10 @@ async function getLocation() {
 }
 
 let currentlat, currentlon, loc, error = true;
-let targetLoc = locationsArray[Math.floor(Math.random() * locationsArray.length)];
+//let targetLoc = locationsArray[Math.floor(Math.random() * locationsArray.length)];
 
 async function onClickSquareBox2() {
+    if(inc==1){
     const locText = await getLocation();
     // loc = 'Your current Location';
     // document.getElementById("location").innerHTML = loc;
