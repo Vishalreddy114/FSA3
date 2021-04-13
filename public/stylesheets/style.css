@@ -17,7 +17,7 @@ article {
 #status {
   height: 200px;
   width: 200px;
-  background: lightcyan;
+  background: rgb(127, 255, 212);
   float: left;
   margin-left: 2px;
   border: 1px solid #ccc;
