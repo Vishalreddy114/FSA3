@@ -93,6 +93,7 @@ module.exports.saveEdit = async (req, res) => {
     LOG.info(`Updated: ${JSON.stringify(updated)}`);
     return res.redirect('/location');
   } catch (err) {
+    console.log(err)
     return res.redirect('/location');
   }
 };
