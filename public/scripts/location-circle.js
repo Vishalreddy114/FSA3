@@ -42,7 +42,7 @@ export function isInsideCircle(device, location)
         let lLat = location.coordinates[0].latitude;
         let lLon = location.coordinates[0].longitude;
 
-        if(dLat<=lLat && dlon<=lLon)
+        if(dLat<=lLat && dLon<=lLon)
         {
             return true;
         }
