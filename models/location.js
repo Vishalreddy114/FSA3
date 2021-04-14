@@ -22,7 +22,7 @@ module.exports = (db, DataTypes) => {
       },
     },
     locationLatitude: {
-      type: DataTypes.DECIMAL(6,4),
+      type: DataTypes.DECIMAL(7,5),
       allowNull: false,
       validate: { min: {
         args: -90,
@@ -35,7 +35,7 @@ module.exports = (db, DataTypes) => {
     },
   },
     locationLongitude: {
-      type: DataTypes.DECIMAL(7,4),
+      type: DataTypes.DECIMAL(8,5),
       allowNull: false,
       unique: true,
       validate: {
