@@ -25,13 +25,13 @@ async function onClickSquareBox1() {
   // $(document).ready(function () {
 
   fetch("/location/findRandom").then(res=> res.json()).then((data)=>{
-    console.log("****************",data)
+    // console.log("****************",data)
     targetLoc = data;
     document.getElementById("targetloc").innerHTML =
-    "Your target location is "+data.locationName;
+    "Your target location is ready.....   Start the Game...!";
   document.getElementById("lbl").innerHTML = " ";
   let utterance = new SpeechSynthesisUtterance(
-    `Your target location is `+data.locationName
+    `Your target location is ready.....   Start the Game...!`
   );
   
   speechSynthesis.speak(utterance);
@@ -58,7 +58,7 @@ async function getLocation() {
 // let targetLoc = locationsArray[Math.floor(Math.random() * locationsArray.length)];
 
 async function onClickSquareBox2() {
-  console.log(targetLoc,"----------box2")
+  // console.log(targetLoc,"----------box2")
   if (!targetLoc) return;
   const locText = await getLocation();
 
